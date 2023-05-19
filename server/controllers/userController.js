@@ -1,5 +1,5 @@
 const { ObjectId } = require('mongoose').Types;
-const { User, order } = require('../models');
+const { User, Order } = require('../models');
 
 const userCount = async () => {
     const numberOfUsers = await User.aggregate()
@@ -12,10 +12,10 @@ const userCount = async () => {
     // Gets all users
     async getUsers(req, res) {
       try {
-        const Users = await User.find();
+        const users = await User.find();
   
         const userObj = {
-          Users,
+          users,
           userCount: await userCount(),
         };
   
@@ -29,15 +29,15 @@ const userCount = async () => {
     // Gets a single user
     async getSingleUser(req, res) {
         try {
-          const User = await User.findOne({ _id: req.params.UserId })
+          const user = await User.findOne({ _id: req.params.UserId })
             .select('-__v');
 
-          if (!User) {
-            return res.status(404).json({ message: 'No User with that ID' })
+          if (!user) {
+            return res.status(404).json({ message: 'There is no user with that Id' })
           }
           res.json({
-            User,
-            order: await order(req.params.UserId),
+            user,
+            order: await Order(req.params.userId),
           });
         } catch (err) {
           console.log(err);
@@ -48,8 +48,8 @@ const userCount = async () => {
     //   Creates a new User
       async createUser(req, res) {
         try {
-          const User = await User.create(req.body);
-          res.json(User);
+          const user = await User.create(req.body);
+          res.json(user);
         } catch (err) {
           res.status(500).json(err);
         }
@@ -58,10 +58,10 @@ const userCount = async () => {
     //   Finds and deletes a user.
       async deleteUser(req, res) {
         try {
-          const User = await User.findOneAndRemove({ _id: req.params.UserId });
+          const user = await User.findOneAndRemove({ _id: req.params.userId });
     
-          if (!User) {
-            return res.status(404).json({ message: 'No such User exists' });
+          if (!user) {
+            return res.status(404).json({ message: 'That user does not exist' });
           }
     
           res.json({ message: 'User was successfully deleted' });
@@ -77,7 +77,7 @@ const userCount = async () => {
         console.log(req.body);
     
         try {
-          const user = await user.findOneAndUpdate(
+          const user = await User.findOneAndUpdate(
             { _id: req.params.userId },
             { $addToSet: { Orders: req.body } },
             { runValidators: true, new: true }
@@ -86,7 +86,7 @@ const userCount = async () => {
           if (!user) {
             return res
               .status(404)
-              .json({ message: 'No user found with that ID' });
+              .json({ message: 'There is no user with that Id.' });
           }
     
           res.json(user);
@@ -95,10 +95,10 @@ const userCount = async () => {
         }
       },
       
-    //   Removes and order from a user.
+    //   Removes an order from a user.
       async removeOrder(req, res) {
         try {
-          const user = await user.findOneAndUpdate(
+          const user = await User.findOneAndUpdate(
             { _id: req.params.userId },
             { $pull: { Order: { OrderId: req.params.OrderId } } },
             { runValidators: true, new: true }
@@ -107,7 +107,7 @@ const userCount = async () => {
           if (!user) {
             return res
               .status(404)
-              .json({ message: 'No user found with that ID' });
+              .json({ message: 'There is no user with that Id.' });
           }
     
           res.json(user);
