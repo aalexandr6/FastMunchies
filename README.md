@@ -2,7 +2,7 @@
 
 ## Project Description
 
-FastMunchies is a food delivery service that allows users to order food from local restaurants. Users can create an account, browse restaurants, and place orders. Restaurant owners can create an account, add their restaurant, and manage orders.
+FastMunchies is a restaurant ordering application. Users can create an account, browse menu and place orders. Restaurant owners and workers can modify their menu and manage orders.
 
 we will be using the following technologies:
 
