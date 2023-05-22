@@ -70,56 +70,6 @@ const userCount = async () => {
           res.status(500).json(err);
         }
       },
-    
-    //   Adds and order to a user
-      async addOrder(req, res) {
-        console.log('You are creating an order');
-        console.log(req.body);
-    
-        try {
-          const user = await User.findOneAndUpdate(
-            { _id: req.params.userId },
-            { $addToSet: { Orders: req.body } },
-            { runValidators: true, new: true }
-          );
-    
-          if (!user) {
-            return res
-              .status(404)
-              .json({ message: 'There is no user with that Id.' });
-          }
-    
-          res.json(user);
-        } catch (err) {
-          res.status(500).json(err);
-        }
-      },
-      
-    //   Removes an order from a user.
-      async removeOrder(req, res) {
-        try {
-          const user = await User.findOneAndUpdate(
-            { _id: req.params.userId },
-            { $pull: { Order: { OrderId: req.params.OrderId } } },
-            { runValidators: true, new: true }
-          );
-    
-          if (!user) {
-            return res
-              .status(404)
-              .json({ message: 'There is no user with that Id.' });
-          }
-    
-          res.json(user);
-        } catch (err) {
-          res.status(500).json(err);
-        }
-      },
-    
-
-
-
-
 }
 
 

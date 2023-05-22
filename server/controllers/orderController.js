@@ -37,23 +37,7 @@ async getSingleOrder(req, res) {
       return res.status(500).json(err);
     }
   },
-
-// delete an order
-  async deleteOrder(req, res) {
-    try {
-      const order = await Order.findOneAndDelete({ _id: req.params.orderId });
-      if (!order) {
-        res.status(404).json({ message: 'There is no order with that Id.' });
-      }
-
-      res.json({ message: 'Order was successfully deleted.' });
-        } catch (err) {
-          console.log(err);
-          res.status(500).json(err);
-        }
-      },
-    
-    // updates an order
+// updates an order
     async updateOrder(req, res) {
     try {
       const order = await Order.findOneAndUpdate(
@@ -71,6 +55,21 @@ async getSingleOrder(req, res) {
       res.status(500).json(err);
     }
   },
+
+// delete an order
+  async deleteOrder(req, res) {
+    try {
+      const order = await Order.findOneAndDelete({ _id: req.params.orderId });
+      if (!order) {
+        res.status(404).json({ message: 'There is no order with that Id.' });
+      }
+
+      res.json({ message: 'Order was successfully deleted.' });
+        } catch (err) {
+          console.log(err);
+          res.status(500).json(err);
+        }
+      },
 };
 
 
