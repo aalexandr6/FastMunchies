@@ -37,18 +37,32 @@ function Copyright(props) {
   );
 }
 
-// TODO remove, this demo shouldn't need to reset the theme.
+
 
 const defaultTheme = createTheme();
 
-export default function SignInSide() {
-  const handleSubmit = (event) => {
+export default function Home() {
+  const handleFormatSubmit = async (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
+   
+    // try {
+    //   const { data } = addNav({
+    //     variables: { email, password },
+        
+    //   });
+
+    //   setEmail('');
+    //   setPassword('');
+    // } catch (err) {
+    //   console.error(err);
+    // }
+
+    // const data = new FormData(event.currentTarget);
+    // console.log({
+    //   email: data.get("email"),
+    //   password: data.get("password"),
+    // // });
+    
   };
 
   return (
@@ -101,7 +115,7 @@ export default function SignInSide() {
             <Box
               component="form"
               noValidate
-              onSubmit={handleSubmit}
+              onSubmit={handleFormatSubmit}
               sx={{ mt: 1 }}
             >
               <TextField

@@ -11,4 +11,3 @@ mutation add_User ($name: String!, $email: String!, $password: String!) {
       }
     }
   }
-`
