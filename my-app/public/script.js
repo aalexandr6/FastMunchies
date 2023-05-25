@@ -1,23 +1,28 @@
-var cartItems = [];
-
 // Function to add an item to the cart
-function addToCart(item) {
-    cartItems.push(item);
-    alert(item + ' added to cart.');
+function addToCart(itemName) {
+    // Get the cart items element
+    const cartItems = document.getElementById('cart-items');
+
+    // Create a new list item for the cart
+    const listItem = document.createElement('li');
+    listItem.textContent = itemName;
+
+    // Append the new list item to the cart items
+    cartItems.appendChild(listItem);
 }
 
-// Function to checkout and display the cart items
+// Function to handle the checkout process
 function checkout() {
-    var cartItemsElement = document.getElementById('cart-items');
-    cartItemsElement.innerHTML = '';
+    // Get the cart items
+    const cartItems = document.getElementById('cart-items').children;
 
-    if (cartItems.length === 0) {
-        cartItemsElement.innerHTML = '<li>Your cart is empty.</li>';
-    } else {
-        for (var i = 0; i < cartItems.length; i++) {
-            var listItem = document.createElement('li');
-            listItem.textContent = cartItems[i];
-            cartItemsElement.appendChild(listItem);
-        }
+    // Display a confirmation message with the selected items
+    let message = "You have selected:\n";
+    for (let i = 0; i < cartItems.length; i++) {
+        message += "- " + cartItems[i].textContent + "\n";
     }
+    alert(message);
+
+    // Clear the cart
+    document.getElementById('cart-items').innerHTML = '';
 }

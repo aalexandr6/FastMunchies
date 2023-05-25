@@ -44,25 +44,46 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Fast Food Delivery</title>
+    <title>Fast Muchies</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-    <h1>Fast Food Delivery</h1>
+    <h1>Fast Muchies</h1>
     <div id="menu-container">
         <div class="menu-item">
-            <img src="burger.jpg" alt="Burger">
+            <img src="burger.jpg" alt="Burger" width="200">
             <h2>Burger</h2>
             <p>Delicious burger with juicy patty, fresh lettuce, and special sauce.</p>
+            <p class="price">$10.99</p>
             <button class="add-to-cart" onclick="addToCart('Burger')">Add to Cart</button>
         </div>
-        <!-- Repeat the above menu item for other food items -->
-
         <div class="menu-item">
-            <img src="pizza.jpg" alt="Pizza">
+            <img src="pizza.jpg" alt="Pizza" width="200">
             <h2>Pizza</h2>
             <p>Tasty pizza with a variety of toppings and melted cheese.</p>
+            <p class="price">$14.99</p>
             <button class="add-to-cart" onclick="addToCart('Pizza')">Add to Cart</button>
+        </div>
+        <div class="menu-item">
+            <img src="sandwich.jpg" alt="Sandwich" width="200">
+            <h2>Sandwich</h2>
+            <p>Classic sandwich with fresh ingredients and your choice of fillings.</p>
+            <p class="price">$8.99</p>
+            <button class="add-to-cart" onclick="addToCart('Sandwich')">Add to Cart</button>
+        </div>
+        <div class="menu-item">
+            <img src="salad.jpg" alt="Salad" width="200">
+            <h2>Salad</h2>
+            <p>Healthy and refreshing salad with a mix of greens and dressing.</p>
+            <p class="price">$7.99</p>
+            <button class="add-to-cart" onclick="addToCart('Salad')">Add to Cart</button>
+        </div>
+        <div class="menu-item">
+            <img src="fries.jpg" alt="Fries" width="200">
+            <h2>Fries</h2>
+            <p>Golden and crispy fries seasoned to perfection.</p>
+            <p class="price">$4.99</p>
+            <button class="add-to-cart" onclick="addToCart('Fries')">Add to Cart</button>
         </div>
     </div>
     <div id="cart-container">
