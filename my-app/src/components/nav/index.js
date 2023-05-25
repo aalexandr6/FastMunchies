@@ -145,6 +145,7 @@ export default function Home(props) {
             >
               <TextField
                 onChange={handleChange}
+                value={formState.email}
                 margin="small"
                 required
                 fullWidth
@@ -156,6 +157,7 @@ export default function Home(props) {
               />
               <TextField
                 onChange={handleChange}
+                value={formState.password}
                 margin="normal"
                 required
                 fullWidth
@@ -184,7 +186,7 @@ export default function Home(props) {
                   </Link>
                 </Grid>
                 <Grid item>
-                  <Link href="#" variant="body2">
+                  <Link href="/signup" variant="body2">
                     {"Sign Up"}
                   </Link>
                 </Grid>
