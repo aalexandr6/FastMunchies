@@ -38,8 +38,11 @@ function Copyright(props) {
 const defaultTheme = createTheme();
 
 export default function Home(props) {
-  const [formState, setFormState] = useState({ email: "", password: "" });
-  const [login, { error, data }] = useMutation(LOGIN_USER);
+  const [formState, setFormState] = useState({ 
+    email: "florea_andreiwento@yahoo.com",
+   password: "123456789",
+  });
+  const [loginUser, { error, data }] = useMutation(LOGIN_USER);
 
   // update state based on form input changes
   const handleChange = (event) => {
@@ -54,7 +57,8 @@ export default function Home(props) {
     event.preventDefault();
     console.log(formState);
     try {
-      const { data } = await login({
+      
+      const { data } = await loginUser({
         variables: { ...formState },
       });
 
@@ -62,36 +66,13 @@ export default function Home(props) {
     } catch (e) {
       console.error(e);
     }
-
-    // clear form values
     setFormState({
-      email: "",
-      password: "",
+      email: "florea_andreiwento@yahoo.com",
+      password: "123456789",
     });
   };
-
-  // const handleFormatSubmit = async (event) => {
-  //   event.preventDefault();
-
-  //   // try {
-  //   //   const { data } = addNav({
-  //   //     variables: { email, password },
-
-  //   //   });
-
-  //   //   setEmail('');
-  //   //   setPassword('');
-  //   // } catch (err) {
-  //   //   console.error(err);
-  //   // }
-
-  //   const data = new FormData(event.currentTarget);
-  //   console.log({
-  //     email: data.get("email"),
-  //     password: data.get("password"),
-  //   });
-
-  // };
+   
+  
 
   return (
     <ThemeProvider theme={defaultTheme}>
@@ -199,3 +180,4 @@ export default function Home(props) {
     </ThemeProvider>
   );
 }
+
