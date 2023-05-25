@@ -67,8 +67,8 @@ export default function Home(props) {
       console.error(e);
     }
     setFormState({
-      email: "florea_andreiwento@yahoo.com",
-      password: "123456789",
+      email: "",
+      password: "",
     });
   };
    
