@@ -1,5 +1,5 @@
-import * as React from "react";
-// import Avatar from "@mui/material/Avatar";
+// import * as React from "react";
+import React, { useState } from "react";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
@@ -9,15 +9,13 @@ import Link from "@mui/material/Link";
 import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
-
-
-
-// import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { useMutation } from "@apollo/client";
+import { LOGIN_USER } from "../../utils/mutations";
 
 
-
+import Auth from "../../utils/auth";
 
 function Copyright(props) {
   return (
@@ -37,33 +35,63 @@ function Copyright(props) {
   );
 }
 
-
-
 const defaultTheme = createTheme();
 
-export default function Home() {
-  const handleFormatSubmit = async (event) => {
-    event.preventDefault();
-   
-    // try {
-    //   const { data } = addNav({
-    //     variables: { email, password },
-        
-    //   });
+export default function Home(props) {
+  const [formState, setFormState] = useState({ email: "", password: "" });
+  const [login, { error, data }] = useMutation(LOGIN_USER);
 
-    //   setEmail('');
-    //   setPassword('');
-    // } catch (err) {
-    //   console.error(err);
-    // }
+  // update state based on form input changes
+  const handleChange = (event) => {
+    const { name, value } = event.target;
 
-    // const data = new FormData(event.currentTarget);
-    // console.log({
-    //   email: data.get("email"),
-    //   password: data.get("password"),
-    // // });
-    
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
   };
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    console.log(formState);
+    try {
+      const { data } = await login({
+        variables: { ...formState },
+      });
+
+      Auth.login(data.login.token);
+    } catch (e) {
+      console.error(e);
+    }
+
+    // clear form values
+    setFormState({
+      email: "",
+      password: "",
+    });
+  };
+
+  // const handleFormatSubmit = async (event) => {
+  //   event.preventDefault();
+
+  //   // try {
+  //   //   const { data } = addNav({
+  //   //     variables: { email, password },
+
+  //   //   });
+
+  //   //   setEmail('');
+  //   //   setPassword('');
+  //   // } catch (err) {
+  //   //   console.error(err);
+  //   // }
+
+  //   const data = new FormData(event.currentTarget);
+  //   console.log({
+  //     email: data.get("email"),
+  //     password: data.get("password"),
+  //   });
+
+  // };
 
   return (
     <ThemeProvider theme={defaultTheme}>
@@ -96,7 +124,6 @@ export default function Home() {
               alignItems: "center",
             }}
           >
- 
             <Typography
               component="h1"
               variant="h2"
@@ -107,18 +134,17 @@ export default function Home() {
               FastMunchies
             </Typography>
 
-            
-
             <Typography component="h1" variant="h4">
               Sign in
             </Typography>
             <Box
               component="form"
               noValidate
-              onSubmit={handleFormatSubmit}
+              onSubmit={handleFormSubmit}
               sx={{ mt: 1 }}
             >
               <TextField
+                onChange={handleChange}
                 margin="small"
                 required
                 fullWidth
@@ -129,6 +155,7 @@ export default function Home() {
                 autoFocus
               />
               <TextField
+                onChange={handleChange}
                 margin="normal"
                 required
                 fullWidth
