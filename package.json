@@ -4,17 +4,20 @@
     "description": "",
     "main": "server/server.js",
     "scripts": {
-      "start": "node server --ignore my-app",
-      "develop": "concurrently \"cd server && npm run start\" \"cd my-app && npm start\"",
-      "install": "cd server && npm i && cd ../my-app && npm i",
-      "seed": "cd server && npm run seed",
-      "build": "cd my-app && npm run build",
-      "heroku-postbuild": "cd my-app && npm i && npm run build"
+        "start": "node server --ignore my-app",
+        "develop": "concurrently \"cd server && npm run start\" \"cd my-app && npm start\"",
+        "install": "cd server && npm i && cd ../my-app && npm i",
+        "seed": "cd server && npm run seed",
+        "build": "cd my-app && npm run build",
+        "heroku-postbuild": "cd my-app && npm i && npm run build"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "devDependencies": {
-      "concurrently": "^5.1.0"
+        "concurrently": "^5.1.0"
+    },
+    "dependencies": {
+        "@material-ui/core": "^4.12.4"
     }
-  }
+}
