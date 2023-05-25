@@ -47,7 +47,6 @@ function App() {
           <Routes>
             <Route path="/" element={<Menu />} />
             <Route path="/" element={<Login/>} />
-            
           </Routes>
         </Router>
       </ApolloProvider>
