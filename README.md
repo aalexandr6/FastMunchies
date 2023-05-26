@@ -131,8 +131,7 @@ You should also consider the following suggestions to help your project stand ou
 
 
 # The URL of the functional, deployed application in Heroku
-* 
- 
+* [FastMunchies](https://git.heroku.com/fastmunchies-app.git) 
 
   # This project has been deployed to GitHub, here is the link:
   
