@@ -143,6 +143,7 @@ You should also consider the following suggestions to help your project stand ou
   # Team-Profile-Generator-OOP Screenshots
  
 * ![Screenshot (88)](https://github.com/aalexandr6/FastMunchies/assets/70625665/e72e01b8-2961-4122-9b79-41efab3ace4a)
+* <img src="my-app/public/menu.png">
 
 
 ## Summary
