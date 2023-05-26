@@ -137,11 +137,12 @@ You should also consider the following suggestions to help your project stand ou
 
   # This project has been deployed to GitHub, here is the link:
   
-  * 
+  * https://github.com/aalexandr6/FastMunchies/tree/wento
 
 
   # Team-Profile-Generator-OOP Screenshots
  
+* ![Screenshot (88)](https://github.com/aalexandr6/FastMunchies/assets/70625665/e72e01b8-2961-4122-9b79-41efab3ace4a)
 
 
 ## Summary
