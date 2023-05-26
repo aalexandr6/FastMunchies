@@ -47,7 +47,6 @@ we will be using the following technologies:
  ## Table of Contents
 
   - [Installation](#installation)
-  - [Usage](#usage)
   - [Contribute](#contribute)
   - [Tests](#tests)
  
@@ -70,7 +69,7 @@ stripe (npm install stripe --save)
 
 
 
-## Usage
+ ## Project 3  ||  Interactive MERN Stack Single-Page Application
 
   - This Challenge will combine many of the skills you’ve learned over the first ten weeks of this course. To help you get started, we’ve provided some guidelines in addition to the User Story and Acceptance Criteria.
 
@@ -137,11 +136,7 @@ You should also consider the following suggestions to help your project stand ou
 
   # This project has been deployed to GitHub, here is the link:
   
-  * https://github.com/aalexandr6/FastMunchies/tree/wento
-
-
-  # Team-Profile-Generator-OOP Screenshots
- 
+* https://github.com/aalexandr6/FastMunchies/tree/wento 
 * ![Screenshot (88)](https://github.com/aalexandr6/FastMunchies/assets/70625665/e72e01b8-2961-4122-9b79-41efab3ace4a)
 * <img src="my-app/public/menu.png">
 
@@ -157,8 +152,8 @@ This project is a fantastic opportunity to show employers your collaborative ski
 
 
 ## Author 
- * CAMERON CROTEAU-  Initial work 
- * ANDREI FLOREA - Initial work 
- * MALAYAH DEMBY -  Initial work 
- * AARON PADILLA - Initial help - Git Hub Profile
- * Project 3  ||  Interactive MERN Stack Single-Page Application
+ * AARON PADILLA
+ * ANDREI FLOREA 
+ * CAMERON CROTEAU 
+ * MALAYAH DEMBY
+
